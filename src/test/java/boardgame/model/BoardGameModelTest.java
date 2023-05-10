@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardGameModelTest {
 
     @Test
-    void move() {
+    void testMove() {
         BoardGameModel model = new BoardGameModel();
 
         assertEquals("0 0 0 \n0 0 0 \n0 0 0 \n", model.toString());
@@ -34,6 +34,39 @@ class BoardGameModelTest {
     }
 
     @Test
+    void testIsGameComplete() {
+        BoardGameModel model = new BoardGameModel();
+        assertFalse(model.isGameComplete());
+
+        // Test horizontal win [0][0]-[0][2]
+        model.move(0, 0);
+        model.move(0, 1);
+        model.move(0, 2);
+        assertTrue(model.isGameComplete());
+
+        // Test vertical win  [0][1]-[2][0]
+        model.move(0, 1);
+        model.move(1, 0);
+        model.move(2, 0);
+        assertTrue(model.isGameComplete());
+
+        // Test diagonal win [0][0]-[2][2]
+        model.move(2, 0);
+        model.move(1, 1);
+        model.move(2, 2);
+        assertTrue(model.isGameComplete());
+
+        // Test diagonal win [2][0]-[0][2]
+        model.move(1, 1);
+        model.move(0, 2);
+        assertTrue(model.isGameComplete());
+
+        // Test no win
+        model.move(1, 1);
+        assertFalse(model.isGameComplete());
+    }
+
+    @Test
     void testToString() {
         BoardGameModel model = new BoardGameModel();
         String expect = "0 0 0 \n0 0 0 \n0 0 0 \n";
@@ -41,7 +74,7 @@ class BoardGameModelTest {
     }
 
     @Test
-    void main() {
+    void testMain() {
         BoardGameModel.main(new String[]{});
     }
 }

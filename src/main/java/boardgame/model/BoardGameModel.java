@@ -28,6 +28,30 @@ public class BoardGameModel {
         );
     }
 
+    public boolean isGameComplete(){
+        for (var row = 0; row < 3; row++) {
+            if (board[row][0].get() == board[row][1].get() && board[row][1].get() == board[row][2].get() && board[row][0].get() != Square.NONE) {
+                return true;
+            }
+        }
+
+        for (var col = 0; col < 3; col++) {
+            if (board[0][col].get() == board[1][col].get() && board[1][col].get() == board[2][col].get() && board[0][col].get() != Square.NONE) {
+                return true;
+            }
+        }
+
+        if (board[0][0].get() == board[1][1].get() && board[1][1].get() == board[2][2].get() && board[0][0].get() != Square.NONE) {
+            return true;
+        }
+
+        if (board[2][0].get() == board[1][1].get() && board[1][1].get() == board[0][2].get() && board[2][0].get() != Square.NONE) {
+            return true;
+        }
+
+        return false;
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (var i = 0; i < BOARD_SIZE; i++) {
