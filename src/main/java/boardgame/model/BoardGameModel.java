@@ -17,6 +17,10 @@ public class BoardGameModel {
         }
     }
 
+    public ReadOnlyObjectProperty<Square> squareProperty(int i, int j) {
+        return board[i][j].getReadOnlyProperty();
+    }
+
     public void move(int i, int j) {
         board[i][j].set(
                 switch (board[i][j].get()) {
