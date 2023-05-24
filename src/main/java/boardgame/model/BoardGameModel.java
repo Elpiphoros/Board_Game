@@ -15,6 +15,14 @@ public class BoardGameModel {
         this.current_player = current_player;
     }
 
+    public String getPlayer1() {
+        return player1;
+    }
+
+    public String getPlayer2() {
+        return player2;
+    }
+
     public String getCurrent_player() {
         return current_player;
     }
@@ -25,6 +33,10 @@ public class BoardGameModel {
 
     public int getOperationsOfPlayer2() {
         return operationsOfPlayer2;
+    }
+
+    public String getWinner() {
+        return winner;
     }
 
     public static final int BOARD_SIZE = 3;
