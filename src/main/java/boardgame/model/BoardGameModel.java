@@ -5,6 +5,28 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 
 public class BoardGameModel {
 
+    private String current_player, player1, player2, winner;
+
+    private int operationsOfPlayer1 = 0, operationsOfPlayer2 = 0;
+
+    public void setPlayer(String player1, String player2, String current_player) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.current_player = current_player;
+    }
+
+    public String getCurrent_player() {
+        return current_player;
+    }
+
+    public int getOperationsOfPlayer1() {
+        return operationsOfPlayer1;
+    }
+
+    public int getOperationsOfPlayer2() {
+        return operationsOfPlayer2;
+    }
+
     public static final int BOARD_SIZE = 3;
 
     private ReadOnlyObjectWrapper<Square>[][] board = new ReadOnlyObjectWrapper[BOARD_SIZE][BOARD_SIZE];
@@ -32,7 +54,7 @@ public class BoardGameModel {
         );
     }
 
-    public boolean isGameComplete(){
+    public boolean isGameComplete() {
         for (var row = 0; row < 3; row++) {
             if (board[row][0].get() == board[row][1].get() && board[row][1].get() == board[row][2].get() && board[row][0].get() != Square.NONE) {
                 return true;
@@ -54,6 +76,25 @@ public class BoardGameModel {
         }
 
         return false;
+    }
+
+    public void playerExchange() {
+        if(!isGameComplete()) {
+            if(current_player.equals(player1)) {
+                current_player = player2;
+                operationsOfPlayer1 ++;
+            }
+            else {
+                current_player = player1;
+                operationsOfPlayer2 ++;
+            }
+        }
+    }
+
+    public void setWinner() {
+        if(isGameComplete()) {
+            this.winner = current_player;
+        }
     }
 
     public String toString() {

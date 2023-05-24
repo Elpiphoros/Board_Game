@@ -67,6 +67,23 @@ class BoardGameModelTest {
     }
 
     @Test
+    void testPlayerExchange() {
+        BoardGameModel model = new BoardGameModel();
+        model.setPlayer("Jiang", "Binxu", "Jiang");
+        model.playerExchange();
+        assertEquals("Binxu", model.getCurrent_player());
+        assertEquals(1, model.getOperationsOfPlayer1());
+
+        model.playerExchange();
+        assertEquals("Jiang", model.getCurrent_player());
+        assertEquals(1, model.getOperationsOfPlayer2());
+
+        model.playerExchange();
+        assertEquals("Binxu", model.getCurrent_player());
+        assertEquals(2, model.getOperationsOfPlayer1());
+    }
+
+    @Test
     void testToString() {
         BoardGameModel model = new BoardGameModel();
         String expect = "0 0 0 \n0 0 0 \n0 0 0 \n";
