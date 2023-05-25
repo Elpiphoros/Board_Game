@@ -82,6 +82,19 @@ class BoardGameModelTest {
         assertEquals("Binxu", model.getCurrent_player());
         assertEquals(2, model.getOperationsOfPlayer1());
     }
+    @Test
+    void testSetWinner() {
+        BoardGameModel model = new BoardGameModel();
+        model.setPlayer("Jiang", "Binxu", "Jiang");
+        model.move(0, 0);
+        model.playerExchange();
+        model.move(0, 1);
+        model.playerExchange();
+        model.move(0, 2);
+        model.playerExchange();
+        model.setWinner();
+        assertEquals("Jiang", model.getWinner());
+    }
 
     @Test
     void testToString() {
