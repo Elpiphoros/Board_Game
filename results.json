@@ -1,0 +1,17 @@
+[ {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Binxu",
+  "operations1" : 4,
+  "operations2" : 3,
+  "startOfGame" : "2023-05-25T23:41:15.4519016",
+  "duration" : "0h:0min:42s"
+}, {
+  "player1" : "Jiang ",
+  "player2" : "Binxu",
+  "winner" : "Binxu",
+  "operations1" : 5,
+  "operations2" : 4,
+  "startOfGame" : "2023-05-25T23:47:45.8030066",
+  "duration" : "0h:0min:16s"
+} ]

@@ -1,6 +1,10 @@
 package boardgame.gui.controller;
 
 import boardgame.model.BoardGameModel;
+import boardgame.record.GameResultManager;
+import boardgame.record.JsonGameResultManager;
+import boardgame.record.GameResult;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -16,6 +20,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import org.tinylog.Logger;
+
+import java.io.IOException;
+import java.nio.file.Path;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -163,7 +170,7 @@ public class GameController {
             model.playerExchange();
             operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
             operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
-            nextPlayer.setText("It's turns to " + model.getCurrent_player());
+            nextPlayer.setText("It's turn to " + model.getCurrent_player());
 
             if(model.isGameComplete()){
                 endOfGame = LocalDateTime.now();
@@ -178,6 +185,8 @@ public class GameController {
                 model.setWinner();
                 nextPlayer.setText("Winner is " + model.getWinner());
                 Logger.debug("winner is {}",model.getWinner());
+
+                addResult();
             }
         }
         else {
@@ -185,4 +194,27 @@ public class GameController {
             Logger.warn("please click 'load info and start the game' to start the game");
         }
     }
+
+    private void addResult() {
+        GameResult gameResult = GameResult.builder()
+                .player1(model.getPlayer1())
+                .operations1(model.getOperationsOfPlayer1())
+                .player2(model.getPlayer2())
+                .operations2(model.getOperationsOfPlayer2())
+                .winner(model.getWinner())
+                .startOfGame(startOfGame)
+                .duration(duration)
+                .build();
+        try {
+            GameResultManager manager = new JsonGameResultManager(Path.of("results.json"));
+            manager.add(gameResult);
+        }
+        catch (IOException e) {
+            Logger.error("Error occurred while saving game result to file: " + e.getMessage());
+        }
+        catch (Exception e) {
+            Logger.error("An unexpected error occurred: " + e.getMessage());
+        }
+    }
+
 }
