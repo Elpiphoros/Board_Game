@@ -1,6 +1,9 @@
 package boardgame.gui.controller;
 
 import boardgame.model.BoardGameModel;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.binding.ObjectBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,14 +16,20 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import org.tinylog.Logger;
-
+import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class GameController {
 
     private FXMLLoader fxmlLoader = new FXMLLoader();
 
     private LocalDateTime startOfGame;
+
+    private LocalDateTime endOfGame;
+
+    private String duration;
+    final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML
     private GridPane board;
@@ -42,6 +51,22 @@ public class GameController {
 
     @FXML
     private Label operationOfPlayer2;
+
+    @FXML
+    private Label timeShow;
+
+    @FXML
+    private Label startLabel;
+
+    @FXML
+    private Label durationLabel;
+
+    @FXML
+    private Label endLabel;
+
+    Timeline timeline = new Timeline(new KeyFrame(javafx.util.Duration.ZERO, e ->
+            timeShow.setText("Time: " + LocalDateTime.now().format(formatter))
+    ), new KeyFrame(javafx.util.Duration.seconds(1)));
 
     private boolean ready = false;
 
@@ -70,8 +95,22 @@ public class GameController {
         operationOfPlayer1.setText("Operation times: 0");
         operationOfPlayer2.setText("Operation times: 0");
         nextPlayer.setText("It's turns to " + model.getCurrent_player());
+        startOfGame = LocalDateTime.now();
+        timeDisplay();
+        startLabel.setText("Start Time: " + startOfGame.format(formatter));
         ready = true;
-        Logger.info("Game starts!");
+        warningLabel.setText("");
+        Logger.info(startOfGame.format(formatter) + " Game starts!");
+    }
+
+    private void timeDisplay() {
+        if(!model.isGameComplete()) {
+            timeline.setCycleCount(Animation.INDEFINITE);
+            timeline.play();
+        }
+        else {
+            timeline.stop();
+        }
     }
 
     private StackPane createSquare(int i, int j) {
@@ -101,6 +140,13 @@ public class GameController {
         return square;
     }
 
+    private String calculateDuration(LocalDateTime start, LocalDateTime end) {
+        var hours = Duration.between(start, end).toHours();
+        var minutes = Duration.between(start, end).toMinutesPart();
+        var seconds = Duration.between(start, end).toSecondsPart();
+        return hours + "h:" + minutes + "min:" + seconds + "s";
+    }
+
     @FXML
     private void handleMouseClick(MouseEvent event) {
         if(model.isGameComplete()){
@@ -119,10 +165,18 @@ public class GameController {
             nextPlayer.setText("It's turns to " + model.getCurrent_player());
 
             if(model.isGameComplete()){
+                endOfGame = LocalDateTime.now();
+                timeDisplay();
+                endLabel.setText("End Time: " + endOfGame.format(formatter));
+                Logger.info(endOfGame.format(formatter) + "Game end!");
+
+                duration = calculateDuration(startOfGame,endOfGame);
+                durationLabel.setText("duration time: " + duration);
+                Logger.info("duration time is " + duration);
+
                 model.setWinner();
                 nextPlayer.setText("Winner is " + model.getWinner());
                 Logger.debug("winner is {}",model.getWinner());
-                Logger.info("Game end");
             }
         }
         else {
