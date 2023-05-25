@@ -18,4 +18,4 @@ the following information will be stored: the date and time when the game was st
 the name of the players, the number of turns made by the players during the game, 
 and the name of the winner. The program is able to display a high score table in which the top 5 players with the most wins are displayed.
 
-The game stores data in a database, in a JSON file.
+The game stores data in a JSON file via Jackson.
