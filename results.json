@@ -14,4 +14,60 @@
   "operations2" : 4,
   "startOfGame" : "2023-05-25T23:47:45.8030066",
   "duration" : "0h:0min:16s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Jiang",
+  "operations1" : 3,
+  "operations2" : 3,
+  "startOfGame" : "2023-05-26T00:42:49.6075169",
+  "duration" : "0h:0min:15s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Binxu",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26T00:47:40.9126248",
+  "duration" : "0h:0min:9s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Jiang",
+  "operations1" : 1,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26T01:00:29.9611296",
+  "duration" : "0h:0min:3s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Binxu",
+  "operations1" : 3,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26T01:01:04.2529148",
+  "duration" : "0h:0min:6s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Jiang",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26T01:11:26.1959617",
+  "duration" : "0h:0min:2s"
+}, {
+  "player1" : "Jerry",
+  "player2" : "Tom",
+  "winner" : "Jerry",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26T01:14:43.7018674",
+  "duration" : "0h:0min:4s"
+}, {
+  "player1" : "Jerry",
+  "player2" : "Tom",
+  "winner" : "Tom",
+  "operations1" : 2,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26T01:27:56.0834398",
+  "duration" : "0h:0min:7s"
 } ]

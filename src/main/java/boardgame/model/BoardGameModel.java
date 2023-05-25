@@ -15,6 +15,14 @@ public class BoardGameModel {
         this.current_player = current_player;
     }
 
+    public void setOperationsOfPlayer1(int number) {
+        this.operationsOfPlayer1 = number;
+    }
+
+    public void setOperationsOfPlayer2(int number) {
+        this.operationsOfPlayer2 = number;
+    }
+
     public String getPlayer1() {
         return player1;
     }

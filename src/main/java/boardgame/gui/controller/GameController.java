@@ -12,6 +12,9 @@ import javafx.beans.binding.ObjectBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -19,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import org.tinylog.Logger;
 
 import java.io.IOException;
@@ -97,7 +101,7 @@ public class GameController {
     }
 
     @FXML
-    private void startRecord(ActionEvent event) {
+    private void startRecord() {
         player1_label.setText("Player 1: " + model.getPlayer1());
         player2_label.setText("Player 2: " + model.getPlayer2());
         operationOfPlayer1.setText("Operation times: 0");
@@ -173,6 +177,15 @@ public class GameController {
             nextPlayer.setText("It's turn to " + model.getCurrent_player());
 
             if(model.isGameComplete()){
+                if(model.getCurrent_player().equals(model.getPlayer1())) {
+                    model.setOperationsOfPlayer1(model.getOperationsOfPlayer1() + 1);
+                    operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
+                }
+                else {
+                    model.setOperationsOfPlayer2(model.getOperationsOfPlayer2() + 1);
+                    operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
+                }
+
                 endOfGame = LocalDateTime.now();
                 timeDisplay();
                 endLabel.setText("End Time: " + endOfGame.format(formatter));
@@ -215,6 +228,24 @@ public class GameController {
         catch (Exception e) {
             Logger.error("An unexpected error occurred: " + e.getMessage());
         }
+    }
+
+    @FXML
+    private void Restart(ActionEvent event) throws IOException {
+        fxmlLoader.setLocation(getClass().getResource("/fxml/start.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    private void seeResult(ActionEvent event) throws IOException {
+        fxmlLoader.setLocation(getClass().getResource("/fxml/results.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 }
