@@ -29,6 +29,7 @@ public class GameController {
     private LocalDateTime endOfGame;
 
     private String duration;
+
     final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @FXML
