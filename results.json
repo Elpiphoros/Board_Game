@@ -126,4 +126,68 @@
   "operations2" : 1,
   "startOfGame" : "2023-05-26 19:30:46",
   "duration" : "0h:0min:1s"
+}, {
+  "player1" : "HAPPYCAT",
+  "player2" : "SADCAT",
+  "winner" : "HAPPYCAT",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26 20:34:48",
+  "duration" : "0h:0min:9s"
+}, {
+  "player1" : "Lightingway",
+  "player2" : "Seseway",
+  "winner" : "Seseway",
+  "operations1" : 6,
+  "operations2" : 6,
+  "startOfGame" : "2023-05-26 21:17:34",
+  "duration" : "0h:0min:16s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "seseway",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26 21:18:55",
+  "duration" : "0h:0min:4s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "seseway",
+  "operations1" : 3,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26 21:19:12",
+  "duration" : "0h:0min:4s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "seseway",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26 21:19:40",
+  "duration" : "0h:0min:2s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "lightingway",
+  "operations1" : 6,
+  "operations2" : 6,
+  "startOfGame" : "2023-05-26 21:20:22",
+  "duration" : "0h:0min:6s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "seseway",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26 21:21:33",
+  "duration" : "0h:0min:1s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "lightingway",
+  "operations1" : 2,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26 21:21:59",
+  "duration" : "0h:0min:1s"
 } ]

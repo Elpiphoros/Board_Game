@@ -2,12 +2,20 @@ package boardgame.gui.controller;
 
 import boardgame.record.GameResult;
 import boardgame.record.JsonGameResultManager;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import org.tinylog.Logger;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -38,6 +46,8 @@ public class ResultController {
     @FXML
     private TableColumn<GameResult, String> duration;
 
+    private final FXMLLoader fxmlLoader = new FXMLLoader();
+
     @FXML
     public void initialize() throws IOException {
 
@@ -61,6 +71,32 @@ public class ResultController {
 
         tableView.setItems(observableList);
 
+    }
+
+    @FXML
+    private void Restart(ActionEvent event) throws IOException {
+        fxmlLoader.setLocation(getClass().getResource("/fxml/start.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+        Logger.info("Game Restarts!");
+    }
+
+    @FXML
+    private void seeRanking(ActionEvent event) throws IOException {
+        fxmlLoader.setLocation(getClass().getResource("/fxml/ranking.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+        Logger.info("Ranking displayed!");
+    }
+
+    @FXML
+    private void exitGame() {
+        Platform.exit();
+        Logger.info("Program terminated");
     }
 
 }

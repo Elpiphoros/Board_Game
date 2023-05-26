@@ -33,7 +33,7 @@ import java.time.format.DateTimeFormatter;
 
 public class GameController {
 
-    private FXMLLoader fxmlLoader = new FXMLLoader();
+    private final FXMLLoader fxmlLoader = new FXMLLoader();
 
     private LocalDateTime startOfGame;
 
@@ -237,6 +237,7 @@ public class GameController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+        Logger.info("Game Restarts!");
     }
 
     @FXML
@@ -246,6 +247,7 @@ public class GameController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+        Logger.info("Results display!");
     }
 
 }
