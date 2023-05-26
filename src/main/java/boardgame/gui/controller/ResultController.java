@@ -11,7 +11,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.time.LocalDateTime;
 
 public class ResultController {
 
@@ -34,7 +33,7 @@ public class ResultController {
     private TableColumn<GameResult, String> winner;
 
     @FXML
-    private TableColumn<GameResult, LocalDateTime> startTime;
+    private TableColumn<GameResult, String> startTime;
 
     @FXML
     private TableColumn<GameResult, String> duration;

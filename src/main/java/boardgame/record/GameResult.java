@@ -1,7 +1,6 @@
 package boardgame.record;
 
 import lombok.*;
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +13,7 @@ public class GameResult {
     @NonNull private String winner;
     @NonNull private int operations1;
     @NonNull private int operations2;
-    @NonNull private LocalDateTime startOfGame;
+    @NonNull private String startOfGame;
     @NonNull private String duration;
 
 }

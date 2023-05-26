@@ -118,4 +118,12 @@
   "operations2" : 2,
   "startOfGame" : "2023-05-26T19:22:22.7880075",
   "duration" : "0h:0min:6s"
+}, {
+  "player1" : "Jiang ",
+  "player2" : "Binxu",
+  "winner" : "Jiang ",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26 19:30:46",
+  "duration" : "0h:0min:1s"
 } ]

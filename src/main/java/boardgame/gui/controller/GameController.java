@@ -215,7 +215,7 @@ public class GameController {
                 .player2(model.getPlayer2())
                 .operations2(model.getOperationsOfPlayer2())
                 .winner(model.getWinner())
-                .startOfGame(startOfGame)
+                .startOfGame(startOfGame.format(formatter))
                 .duration(duration)
                 .build();
         try {
