@@ -70,4 +70,52 @@
   "operations2" : 2,
   "startOfGame" : "2023-05-26T01:27:56.0834398",
   "duration" : "0h:0min:7s"
+}, {
+  "player1" : "Jack",
+  "player2" : "Rose",
+  "winner" : "Rose",
+  "operations1" : 2,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26T18:48:16.8218393",
+  "duration" : "0h:0min:10s"
+}, {
+  "player1" : "Jack",
+  "player2" : "Rose",
+  "winner" : "Jack",
+  "operations1" : 6,
+  "operations2" : 5,
+  "startOfGame" : "2023-05-26T18:52:29.4708852",
+  "duration" : "0h:0min:5s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Binxu",
+  "operations1" : 2,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26T18:54:36.8565998",
+  "duration" : "0h:0min:1s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Jiang",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26T19:14:54.1228773",
+  "duration" : "0h:0min:4s"
+}, {
+  "player1" : "Tom",
+  "player2" : "Jerry",
+  "winner" : "Tom",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26T19:18:29.0206829",
+  "duration" : "0h:0min:2s"
+}, {
+  "player1" : "Happy Cat",
+  "player2" : "CryingCat",
+  "winner" : "Happy Cat",
+  "operations1" : 3,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-26T19:22:22.7880075",
+  "duration" : "0h:0min:6s"
 } ]
