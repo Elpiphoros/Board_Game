@@ -20,6 +20,9 @@ import org.tinylog.Logger;
 import java.io.IOException;
 import java.nio.file.Path;
 
+/**
+ * Controls the results display interface.
+ */
 public class ResultController {
 
     @FXML
@@ -48,6 +51,12 @@ public class ResultController {
 
     private final FXMLLoader fxmlLoader = new FXMLLoader();
 
+    /**
+     * Initializes the game result table view with the appropriate cell value factories and data.
+     * Retrieves the game results from a JSON file and populates the table view with the data.
+     *
+     * @throws IOException if there is an error reading the game results from the JSON file
+     */
     @FXML
     public void initialize() throws IOException {
 

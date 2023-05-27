@@ -13,7 +13,9 @@ import org.tinylog.Logger;
 
 import java.io.IOException;
 
-
+/**
+ * Controls the opening interface.
+ */
 public class StartController {
 
     private FXMLLoader fxmlLoader = new FXMLLoader();

@@ -21,7 +21,7 @@
       </TableView>
       <Button layoutX="-1.0" layoutY="558.0" mnemonicParsing="false" onAction="#Restart" prefHeight="64.0" prefWidth="302.0" text="Restart" textFill="#d41598">
          <font>
-            <Font size="26.0" />
+            <Font name="Comic Sans MS Bold Italic" size="26.0" />
          </font></Button>
       <Button layoutX="302.0" layoutY="559.0" mnemonicParsing="false" onAction="#seeRanking" prefHeight="64.0" prefWidth="302.0" text="Ranking List" textFill="#ec7d05">
          <font>

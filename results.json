@@ -190,4 +190,36 @@
   "operations2" : 2,
   "startOfGame" : "2023-05-26 21:21:59",
   "duration" : "0h:0min:1s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Jiang",
+  "operations1" : 2,
+  "operations2" : 1,
+  "startOfGame" : "2023-05-26 21:39:55",
+  "duration" : "0h:0min:1s"
+}, {
+  "player1" : "Lucy",
+  "player2" : "Jack",
+  "winner" : "Jack",
+  "operations1" : 2,
+  "operations2" : 2,
+  "startOfGame" : "2023-05-27 16:34:20",
+  "duration" : "0h:0min:1s"
+}, {
+  "player1" : "Jiang",
+  "player2" : "Binxu",
+  "winner" : "Binxu",
+  "operations1" : 3,
+  "operations2" : 3,
+  "startOfGame" : "2023-05-27 19:05:08",
+  "duration" : "0h:0min:5s"
+}, {
+  "player1" : "seseway",
+  "player2" : "lightingway",
+  "winner" : "lightingway",
+  "operations1" : 4,
+  "operations2" : 4,
+  "startOfGame" : "2023-05-27 20:35:22",
+  "duration" : "0h:0min:42s"
 } ]

@@ -27,10 +27,22 @@ class BoardGameModelTest {
         model.move(2, 2);
         assertEquals("3 0 0 \n0 3 0 \n0 0 3 \n", model.toString());
 
+    }
+
+    @Test
+    void testIsGreen() {
+        BoardGameModel model = new BoardGameModel();
+
+        assertFalse(model.isGreen(0,0));
+
         model.move(0, 0);
-        model.move(1, 1);
-        model.move(2, 2);
-        assertEquals("0 0 0 \n0 0 0 \n0 0 0 \n", model.toString());
+        assertFalse(model.isGreen(0,0));
+
+        model.move(0, 0);
+        assertFalse(model.isGreen(0,0));
+
+        model.move(0, 0);
+        assertTrue(model.isGreen(0,0));
     }
 
     @Test
@@ -103,8 +115,4 @@ class BoardGameModelTest {
         assertEquals(expect, model.toString());
     }
 
-    @Test
-    void testMain() {
-        BoardGameModel.main(new String[]{});
-    }
 }

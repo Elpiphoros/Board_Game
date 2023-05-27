@@ -20,6 +20,9 @@ import org.tinylog.Logger;
 import java.io.IOException;
 import java.nio.file.Path;
 
+/**
+ * Controls the ranking list interface.
+ */
 public class RankingController {
 
     private final FXMLLoader fxmlLoader = new FXMLLoader();

@@ -9,14 +9,29 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The JsonGameResultManager class is an implementation of the GameResultManager interface.
+ */
 public class JsonGameResultManager implements GameResultManager {
 
     private Path filePath;
 
+    /**
+     * Constructs a JsonGameResultManager with the specified file path.
+     *
+     * @param filePath the path to the JSON file
+     */
     public JsonGameResultManager(@NonNull Path filePath) {
         this.filePath = filePath;
     }
 
+    /**
+     * Adds a game result to the JSON file.
+     *
+     * @param result the game result that will be added
+     * @return the updated list of game results
+     * @throws IOException if an I/O error occurs while adding the game result
+     */
     @Override
     public List<GameResult> add(@NonNull GameResult result) throws IOException {
         var results = getAll();
@@ -27,6 +42,12 @@ public class JsonGameResultManager implements GameResultManager {
         return results;
     }
 
+    /**
+     * Retrieves all game results from the JSON file.
+     *
+     * @return the list of all game results
+     * @throws IOException if an I/O error occurs while retrieving the game results
+     */
     public List<GameResult> getAll() throws IOException {
         if (!Files.exists(filePath)) {
             return new ArrayList<GameResult>();

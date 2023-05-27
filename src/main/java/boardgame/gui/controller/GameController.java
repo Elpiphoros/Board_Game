@@ -31,6 +31,9 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Controls the interface during the game.
+ */
 public class GameController {
 
     private final FXMLLoader fxmlLoader = new FXMLLoader();
@@ -84,6 +87,14 @@ public class GameController {
 
     private BoardGameModel model = new BoardGameModel();
 
+    /**
+     * Initializes the players for the game.
+     * Sets the names of player1 and player2 in the game model.
+     * The current player is set to player1 initially.
+     *
+     * @param player1 the name of player1
+     * @param player2 the name of player2
+     */
     public void initialPlayer(String player1, String player2) {
         model.setPlayer(player1, player2, player1);
         Logger.info("record the players' names");
@@ -127,7 +138,6 @@ public class GameController {
 
     private StackPane createSquare(int i, int j) {
         var square = new StackPane();
-        square.getStyleClass().add("square");
         var piece = new Circle(50);
 
         piece.fillProperty().bind(
@@ -168,38 +178,45 @@ public class GameController {
             var square = (StackPane) event.getSource();
             var row = GridPane.getRowIndex(square);
             var col = GridPane.getColumnIndex(square);
-            model.move(row, col);
-            Logger.debug("{} Click on square ({}, {})",model.getCurrent_player(), row, col);
+            if(!model.isGreen(row,col)){
+                model.move(row, col);
+                Logger.debug("{} Click on square ({}, {})",model.getCurrent_player(), row, col);
 
-            model.playerExchange();
-            operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
-            operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
-            nextPlayer.setText("It's turn to " + model.getCurrent_player());
+                model.playerExchange();
+                operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
+                operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
+                nextPlayer.setText("It's turn to " + model.getCurrent_player());
+                warningLabel.setText("");
 
-            if(model.isGameComplete()){
-                if(model.getCurrent_player().equals(model.getPlayer1())) {
-                    model.setOperationsOfPlayer1(model.getOperationsOfPlayer1() + 1);
-                    operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
+                if(model.isGameComplete()){
+                    if(model.getCurrent_player().equals(model.getPlayer1())) {
+                        model.setOperationsOfPlayer1(model.getOperationsOfPlayer1() + 1);
+                        operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
+                    }
+                    else {
+                        model.setOperationsOfPlayer2(model.getOperationsOfPlayer2() + 1);
+                        operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
+                    }
+
+                    endOfGame = LocalDateTime.now();
+                    timeDisplay();
+                    endLabel.setText("End Time: " + endOfGame.format(formatter));
+                    Logger.info(endOfGame.format(formatter) + "Game end!");
+
+                    duration = calculateDuration(startOfGame,endOfGame);
+                    durationLabel.setText("duration time: " + duration);
+                    Logger.info("duration time is " + duration);
+
+                    model.setWinner();
+                    nextPlayer.setText("Winner is " + model.getWinner());
+                    Logger.debug("winner is {}",model.getWinner());
+
+                    addResult();
                 }
-                else {
-                    model.setOperationsOfPlayer2(model.getOperationsOfPlayer2() + 1);
-                    operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
-                }
-
-                endOfGame = LocalDateTime.now();
-                timeDisplay();
-                endLabel.setText("End Time: " + endOfGame.format(formatter));
-                Logger.info(endOfGame.format(formatter) + "Game end!");
-
-                duration = calculateDuration(startOfGame,endOfGame);
-                durationLabel.setText("duration time: " + duration);
-                Logger.info("duration time is " + duration);
-
-                model.setWinner();
-                nextPlayer.setText("Winner is " + model.getWinner());
-                Logger.debug("winner is {}",model.getWinner());
-
-                addResult();
+            }
+            else {
+                warningLabel.setText("Don't remove Green stone!");
+                Logger.warn("player try to remove Green stone");
             }
         }
         else {

@@ -23,10 +23,10 @@ public class JacksonHelper {
     /**
      * Deserializes a list of objects from JSON.
      *
+     * @param <T> the type of the list elements
      * @param in the input stream from which JSON data will be read
      * @param elementClass represents the class of the elements
      * @return the list of objects deserialized from JSON
-     * @param <T> the type of the list elements
      * @throws IOException if any I/O error occurs
      */
     public static <T> List<T> readList(InputStream in, Class<T> elementClass) throws IOException {

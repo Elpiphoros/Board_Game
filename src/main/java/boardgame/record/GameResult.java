@@ -2,6 +2,9 @@ package boardgame.record;
 
 import lombok.*;
 
+/**
+ * The basic data of the game result that will be stored.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
