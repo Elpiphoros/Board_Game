@@ -17,12 +17,12 @@
       <TextArea editable="false" layoutX="7.0" layoutY="67.0" prefHeight="179.0" prefWidth="586.0" text="This game is played by two players.&#10;The game board consist of 3x3 cells, each of which can contain a piece of stone, &#10;and a set of colored (red, yellow, and green) stones. The board is initially empty. &#10;Players move in turn, they have the following options:&#10;&#10;1. placing a red stone into an empty cell,&#10;2. replacing a red stone on the board with a yellow stone,&#10;3. replacing a yellow stone on the board with a green stone.&#10;&#10;The goal of the game is to have three stones of the same color in a row, column, or diagonal. &#10;The player who achieves this with his or her move wins the game." />
       <Label layoutX="23.0" layoutY="259.0" prefHeight="47.0" prefWidth="107.0" text="Player 1:" textFill="#0d12a1">
          <font>
-            <Font name="AdobeArabic-Bold" size="33.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="23.0" layoutY="312.0" prefHeight="47.0" prefWidth="92.0" text="Player 2:" textFill="#0d12a1">
          <font>
-            <Font name="AdobeArabic-Bold" size="33.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <TextField fx:id="player1" layoutX="140.0" layoutY="259.0" prefHeight="47.0" prefWidth="250.0">

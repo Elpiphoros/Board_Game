@@ -117,7 +117,7 @@ public class GameController {
         player2_label.setText("Player 2: " + model.getPlayer2());
         operationOfPlayer1.setText("Operation times: 0");
         operationOfPlayer2.setText("Operation times: 0");
-        nextPlayer.setText("It's turns to " + model.getCurrent_player());
+        nextPlayer.setText("It's turn to " + model.getCurrent_player());
         startOfGame = LocalDateTime.now();
         timeDisplay();
         startLabel.setText("Start Time: " + startOfGame.format(formatter));

@@ -44,12 +44,12 @@
       </Label>
       <Label fx:id="operationOfPlayer1" layoutY="71.0" prefHeight="35.0" prefWidth="192.0" textFill="#248751">
          <font>
-            <Font name="AdobeArabic-Regular" size="24.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="operationOfPlayer2" layoutY="141.0" prefHeight="35.0" prefWidth="200.0" textFill="#298e66">
          <font>
-            <Font name="AdobeArabic-Regular" size="24.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Label fx:id="nextPlayer" layoutY="170.0" prefHeight="43.0" prefWidth="192.0" textFill="#f40808">
