@@ -106,6 +106,7 @@ class BoardGameModelTest {
         model.playerExchange();
         model.setWinner();
         assertEquals("Jiang", model.getWinner());
+        assertEquals(2, model.getOperationsOfPlayer1());
     }
 
     @Test

@@ -26,24 +26,6 @@ public class BoardGameModel {
     }
 
     /**
-     * Sets the number of operations for Player 1.
-     *
-     * @param number the {@code number} of operations for Player 1
-     */
-    public void setOperationsOfPlayer1(int number) {
-        this.operationsOfPlayer1 = number;
-    }
-
-    /**
-     * Sets the number of operations for Player 2.
-     *
-     * @param number the {@code number} of operations for Player 2
-     */
-    public void setOperationsOfPlayer2(int number) {
-        this.operationsOfPlayer2 = number;
-    }
-
-    /**
      * Retrieves the name of Player 1.
      *
      * @return the {@code name} of Player 1
@@ -206,11 +188,17 @@ public class BoardGameModel {
     }
 
     /**
-     * Sets the winner's names.
+     * Sets the winner's names and increases 1 to operation times of winner.
      */
     public void setWinner() {
         if(isGameComplete()) {
             this.winner = current_player;
+            if(this.winner.equals(player1)) {
+                operationsOfPlayer1 += 1;
+            }
+            else {
+                operationsOfPlayer2 += 1;
+            }
         }
     }
 

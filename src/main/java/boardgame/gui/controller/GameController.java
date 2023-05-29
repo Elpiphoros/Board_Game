@@ -123,7 +123,7 @@ public class GameController {
         startLabel.setText("Start Time: " + startOfGame.format(formatter));
         ready = true;
         warningLabel.setText("");
-        Logger.info(startOfGame.format(formatter) + " Game starts!");
+        Logger.debug("{} Game starts!",startOfGame.format(formatter));
     }
 
     private void timeDisplay() {
@@ -189,26 +189,20 @@ public class GameController {
                 warningLabel.setText("");
 
                 if(model.isGameComplete()){
-                    if(model.getCurrent_player().equals(model.getPlayer1())) {
-                        model.setOperationsOfPlayer1(model.getOperationsOfPlayer1() + 1);
-                        operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
-                    }
-                    else {
-                        model.setOperationsOfPlayer2(model.getOperationsOfPlayer2() + 1);
-                        operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
-                    }
 
                     endOfGame = LocalDateTime.now();
                     timeDisplay();
                     endLabel.setText("End Time: " + endOfGame.format(formatter));
-                    Logger.info(endOfGame.format(formatter) + "Game end!");
+                    Logger.debug("{} Game end!",endOfGame.format(formatter));
 
                     duration = calculateDuration(startOfGame,endOfGame);
                     durationLabel.setText("duration time: " + duration);
-                    Logger.info("duration time is " + duration);
+                    Logger.debug("duration time is {}", duration);
 
                     model.setWinner();
                     nextPlayer.setText("Winner is " + model.getWinner());
+                    operationOfPlayer1.setText("Operation times: " + model.getOperationsOfPlayer1());
+                    operationOfPlayer2.setText("Operation times: " + model.getOperationsOfPlayer2());
                     Logger.debug("winner is {}",model.getWinner());
 
                     addResult();
@@ -240,10 +234,10 @@ public class GameController {
             manager.add(gameResult);
         }
         catch (IOException e) {
-            Logger.error("Error occurred while saving game result to file: " + e.getMessage());
+            Logger.error("Error occurred while saving game result to file: {}", e.getMessage());
         }
         catch (Exception e) {
-            Logger.error("An unexpected error occurred: " + e.getMessage());
+            Logger.error("An unexpected error occurred: {}", e.getMessage());
         }
     }
 
